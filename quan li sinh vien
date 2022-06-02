@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std ;
+struct DATE {
+	int ngay ,thang ,nam ;
+};
+
+void nhapDATE(DATE& x) {
+	cout<<"d/m/yyyy";
+	cin >> x.ngay >>x.thang >>x.nam ;
+}
+void xuatDATE ( DATE x){
+	cout <<x.ngay<<"/"<<x.thang<<"/"<<x.nam<< " "<< endl ;
+}
+struct SV{
+	char mssv [5];
+	char ht[21];
+	char gt ;//x la nu va y la nam ;
+	DATE ngaysinh ;
+	char lop[7];
+	float dtb ;
+};
+void nhapSV(SV& x){
+	cout <<" masv ";
+	cin >>x.mssv;
+	fflush(stdin);//xoa vung nhoban phim
+	cout <<"ho ten ";
+	cin >>x.ht;
+	do {
+		cout<<" gioi tinh ";
+		cin >>x.gt;
+	} while (x.gt!='x'&& x.gt!='y');
+	nhapDATE(x.ngaysinh);
+		fflush(stdin);
+		cout<<" lop ";
+		cin >>x.lop;
+		cout<<" dtb";
+		cin >>x.dtb;
+}
+void xuatSV (SV x){
+	cout <<" mssv"<<x.mssv<<endl;
+	cout<<" hoten "<<x.ht<< endl ;
+	if (x.gt=='x') cout << "nu "<<endl;
+	else cout << "nam ";
+	xuatDATE(x.ngaysinh);
+	cout << " lop :"<<x.lop<< endl ;
+	cout <<" dtb :"<<x.dtb<< endl; 
+}
+int main (){
+	SV a;
+	nhapSV (a);
+	xuatSV(a);
+	
+	return 0 ;
+	
+}
